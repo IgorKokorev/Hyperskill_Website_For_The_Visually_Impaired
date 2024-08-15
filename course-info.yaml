@@ -1,0 +1,15 @@
+type: hyperskill
+title: Website For The Visually Impaired
+language: English
+summary: "<p>Designing a website with content accessibility in mind is crucial. Developers\
+  \ must consider various factors to ensure it's accessible to everyone. Your task\
+  \ is to construct a website catering to visually impaired individuals, complete\
+  \ with unique accessibility modes. Additionally, you'll learn how to manipulate\
+  \ the DOM through HTML and JS to create a web page.</p><br/><br/>Learn more at <a\
+  \ href=\"https://hyperskill.org/projects/368?utm_source=ide&utm_medium=ide&utm_campaign=ide&utm_content=project-card\"\
+  >https://hyperskill.org/projects/368</a>"
+programming_language: JavaScript
+content:
+    - Website For The Visually Impaired
+    - Topics
+mode: Study

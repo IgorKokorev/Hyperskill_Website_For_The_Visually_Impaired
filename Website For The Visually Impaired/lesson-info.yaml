@@ -1,0 +1,9 @@
+type: framework
+content:
+    - Content
+    - Toggle accessibility modes
+    - Accessibility mode for font size
+    - Accessibility mode for background color
+    - Accessibility mode for the images
+    - Bonus stage
+current_task: 5

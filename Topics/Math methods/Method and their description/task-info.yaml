@@ -1,0 +1,45 @@
+type: matching
+captions:
+    - <code>Math.pow()</code>
+    - <code>Math.sqrt()</code>
+    - <code>Math.round()</code>
+    - <code>Math.trunc()</code>
+    - <code>Math.min()</code>
+    - <code>Math.floor()</code>
+    - <code>Math.abs()</code>
+    - <code>Math.ceil()</code>
+    - <code>Math.sign()</code>
+    - <code>Math.random()</code>
+    - <code>Math.max()</code>
+options:
+    - "returns 1 if x &gt; 0, returns 0 if x === 0, and -1 if x &lt; 0"
+    - "returns x rounded to the nearest integer (if the fractional part of x is half,\
+  \ it will round up)"
+    - returns the maximum number of those specified in the arguments
+    - returns the integer part of x
+    - returns the square root of x
+    - returns x rounded up to the nearest whole number
+    - returns a random number from 0 (inclusive) to 1 (not inclusive)
+    - returns x raised to the power of y
+    - returns the absolute value of x
+    - returns x rounded down to the nearest whole number
+    - returns the smaller number of those specified in the arguments
+files:
+    -   name: main.js
+        visible: true
+        learner_created: false
+feedback_link: https://hyperskill.org/learn/step/24967#comment
+status: Solved
+record: -1
+ordering:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10

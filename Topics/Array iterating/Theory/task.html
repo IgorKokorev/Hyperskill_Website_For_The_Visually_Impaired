@@ -1,0 +1,185 @@
+<div class="step-text">
+<p>As you know, using an array to store multiple values is possible instead of creating a variable for each one. This makes your code incredibly short. This is undoubtedly useful, but storing and processing data are different. Let's say you need to simply <code class="language-javascript">console.log</code> each item on the array. Is it necessary to address each item by <code class="language-javascript">console.log</code> wasting as many lines of code as you thought you saved five minutes ago? Of course not! In this topic, we'll look through every possible way of going through the array.</p>
+<h5 id="using-a-for-loop">Using a for loop</h5>
+<p>First, let's remember how a simple <code class="language-javascript">for</code> loop works and what it looks like:</p>
+<pre><code class="language-javascript">for (let i = 0; i &lt; 5; i++) {
+    console.log(i); // 0, 1, 2, 3, 4
+}</code></pre>
+<p>After executing this script, you'll see numbers from <code class="language-javascript">0</code> to <code class="language-javascript">4</code> in the console. Now take a look at this array and say what the indices of the items are:</p>
+<pre><code class="language-javascript">let array1 = ['item1', 'item2', 'item3', 'item4', 'item5'];</code></pre>
+<p>If you remember that it's possible to address any item on the list by its index, everything becomes clear as day. To iterate an array, you have to use a loop variable as an index to address the next item on each iteration of the loop:</p>
+<pre><code class="language-javascript">let array1 = ['item1', 'item2', 'item3', 'item4', 'item5'];
+for (let i = 0; i &lt; 5; i++) {
+    console.log(array1[i]); // 'item1', 'item2', 'item3', 'item4', 'item5'
+}</code></pre>
+<p>As a result, you will see each item logged in the console. Looks easy, but in real-life scenarios, you don't usually know the array's length. So that's why you better use <code class="language-javascript">array1.length</code> to limit the number of iterations:</p>
+<pre><code class="language-javascript">let array1 = ['item1', 'item2', 'item3', 'item4', 'item5'];
+for (let i = 0; i &lt; array1.length; i++) {
+    console.log(array1[i]); // 'item1', 'item2', 'item3', 'item4', 'item5'
+}</code></pre>
+<p>In this case, the loop will not throw an error, no matter the array's length.</p>
+<p>Now, let's take a bit of an advanced example to understand how to use the for loop to iterate more efficiently and get the desired results.</p>
+<pre><code class="language-javascript">// Odd or Even
+
+const newArray = [2, 5, 15, 20];
+
+for (let element = 0; element &lt; newArray.length; element++) {
+  if (newArray[element] % 2 == 0) {
+    console.log(
+      `It is even, multiplying ${newArray[element]} by 2, we get`,
+      newArray[element] * 2
+    );
+  } else {
+    console.log(
+      `It is odd, multiplying ${newArray[element]} by 3, we get`,
+      newArray[element] * 3
+    );
+  }
+}</code></pre>
+<p>Here is the output of the above code snippet:</p>
+<pre><code class="language-bash">It is even, multiplying 2 by 2, we get 4
+It is odd, multiplying 5 by 3, we get 15
+It is odd, multiplying 15 by 3, we get 45
+It is even, multiplying 20 by 2, we get 40</code></pre>
+<h5 id="using-foreach">Using forEach</h5>
+<p>The second way to iterate an array is to use the <code class="language-javascript">forEach</code> method. With this construct, you get access to the array element:</p>
+<pre><code class="language-javascript">let array1 = [1, 2, 3, 4, 5];
+
+array1.forEach(function(item) {
+  console.log(item); // 1, 2, 3, 4, 5
+});</code></pre>
+<p>As an argument, this method accepts a <strong>callback </strong>function defining operations to perform with each item. We logged them into the console this time, but those actions might be whatever you want.</p>
+<p>Now, you can see a clear disadvantage of this method: you don't know the index of the item you're working with. Luckily, we need to dig deeper to solve this issue. The callback function also accepts two more arguments, which are the index and the array itself:</p>
+<pre><code class="language-javascript">let array1 = [1, 2, 3, 4, 5];
+
+array1.forEach(function(item, index, array) {
+  console.log('a[' + index + '] = ' + item);
+});
+
+// The result is:
+// a[0] = 1
+// a[1] = 2
+// a[2] = 3
+// a[3] = 4
+// a[4] = 5</code></pre>
+<p>The <code class="language-javascript">array</code> is needed here for the function to know what it's working with, but you don't necessarily have to pass either the index or the array since everything happens under the hood.</p>
+<p>By the way, this method does not return anything. For example, <code class="language-javascript">console.log</code> prints <code class="language-javascript">undefined</code>:</p>
+<pre><code class="language-javascript">let array1 = [1, 2, 3, 4, 5];
+
+let result = array1.forEach(function(item, index, array) {
+  item = 'a[' + index + '] = ' + item;
+});
+console.log(result);</code></pre>
+<p>Now, let's rewrite the <code class="language-javascript">Odd or Even</code> example discussed using the <code class="language-javascript">forEach</code> structure.</p>
+<pre><code class="language-javascript">newArray.forEach(function (item) {
+  if (item % 2 == 0) {
+    console.log(`It is even, multiplying ${item} by 2, we get`, item * 2);
+  } else {
+    console.log(`It is odd, multiplying ${item} by 3, we get`, item * 3);
+  }
+});</code></pre>
+<p>Here is the output of the above code snippet:</p>
+<pre><code class="language-bash">It is even, multiplying 2 by 2, we get 4
+It is odd, multiplying 5 by 3, we get 15
+It is odd, multiplying 15 by 3, we get 45
+It is even, multiplying 20 by 2, we get 40</code></pre>
+<h5 id="using-foreach-in-a-different-way">Using forEach in a different way</h5>
+<p>There are a couple of options except for the one we just discussed to choose from while using <code class="language-javascript">forEach</code>. Another one is using an arrow function <code class="language-javascript">(e) =&gt; { ... }</code>, where <code class="language-javascript">(e)</code> is an item, and the code inside the curve brackets is a callback function. The code from the callback function will be applied once to each item, in this case, logging it into the console.</p>
+<pre><code class="language-javascript">let array1 = [1, 2, 3, 4, 5];
+
+array1.forEach((e) =&gt; {
+  console.log(e); //1, 2, 3, 4, 5
+});</code></pre>
+<p>Here, it's also possible to pass the index or the array or both, just like we did before:</p>
+<pre><code class="language-javascript">let array1 = [1, 2, 3, 4, 5];
+
+array1.forEach((item, index) =&gt; {
+  console.log('a[' + index + '] = ' + item);
+});
+
+// The result is:
+// a[0] = 1
+// a[1] = 2
+// a[2] = 3
+// a[3] = 4
+// a[4] = 5</code></pre>
+<p>Now, let's take a look at the remaining options. This time, we will create a function outside of the method and then call it inside of the method:</p>
+<pre><code class="language-javascript">function logMyItems(item, index, array) {
+  console.log('a[' + index + '] = ' + item);
+}
+
+let array1 = [1, 2, 3, 4, 5];
+array1.forEach(logMyItems);
+
+// The result is:
+// a[0] = 1
+// a[1] = 2
+// a[2] = 3
+// a[3] = 4
+// a[4] = 5</code></pre>
+<h5 id="simple-loop">Simple loop</h5>
+<p>Let's take a look at this block of code:</p>
+<pre><code class="language-javascript">let array1 = [];
+array1[4] = 4;</code></pre>
+<p>The second line of code is permitted; we just changed the size of the array by defining the value for the fourth item. In this case, each item that goes before the last one will be considered <code class="language-javascript">undefined</code> and also logged into the console:</p>
+<pre><code class="language-javascript">let array1 = [];
+array1[4] = 5;
+
+for (let i = 0; i &lt; array1.length; i++) {
+    console.log(array1[i]);
+}
+
+// The result is:
+// undefined
+// undefined
+// undefined
+// undefined
+// 5</code></pre>
+<p>If we try <code class="language-javascript">forEach()</code>, those undefined items won't ever be displayed:</p>
+<pre><code class="language-javascript">let array1 = [];
+array1[4] = 5;
+
+array1.forEach((i) =&gt; console.log(i));
+
+//The result is:
+//5</code></pre>
+<p>Keep this in mind while choosing between a simple loop and a <code class="language-javascript">forEach</code>.</p>
+<h5 id="using-forin-structure">Using for...in structure</h5>
+<p>Array's most significant advantage is that its items are structured: you know their order and can address any with its index. Another way to iterate an array sometimes completely breaks everything:</p>
+<pre><code class="language-javascript">let array1 = [1, 2, 3, 4, 5];
+
+for (let item in array1) {
+  console.log(item);
+}</code></pre>
+<p>The result of this code is obvious... Or not? The thing is, the <code class="language-javascript">for...in</code> structure is used to enumerate over-object properties. An array is also an object, so its property can be non-numeric. For example, you can do something like this:</p>
+<pre><code class="language-javascript">let array1 = ['a', 'b', 'c'];
+array1.stringProperty = 'd';
+
+for (let i in array1) {
+  console.log(i, array1[i]); 
+}
+//0 a
+//1 b
+//2 c
+//stringProperty d</code></pre>
+<p><code class="language-javascript">For...in</code> doesn't ignore non-numeric properties. There is also no guarantee it prints out all the items respecting their order. Avoid using this structure over an array for iterating since sometimes this little order disturbance might cause chaos.</p>
+<h5 id="using-forof">Using for...of</h5>
+<p>The <code class="language-javascript">for...of</code> statement was introduced in ES6 to iterate over an iterable. For example, you can use <code class="language-javascript">for...of</code> to iterate over arrays, array-like objects, sets, maps, etc. However, the most common application of the <code class="language-javascript">for...of</code> structure is to iterate on arrays. Let's take an example to understand the <code class="language-javascript">for...of</code> structure in JavaScript.</p>
+<pre><code class="language-javascript">const items = ["phone", "table", "chair", "bucket"];
+
+for (const item of items) {
+  console.log(item); 
+}
+
+// phone
+// table
+// chair
+// bucket
+</code></pre>
+<p>As you can see in the example above, the <code class="language-javascript">for...of</code> iterates over every single item of the <em>items</em> array.</p>
+<h5 id="conclusion">Conclusion</h5>
+<p>Arrays are an instrumental data structure in JavaScript that can make your code shorter and more efficient. When it comes to iterating over an array, there are several ways to do it, including using a for loop, forEach method, <code class="language-javascript">for...in</code> structure, and <code class="language-javascript">for...of</code> structure.</p>
+<p>The <code class="language-javascript">for</code> loop and <code class="language-javascript">forEach</code> method are the two most recommended ways to iterate over an array. With a for loop, you can use a loop variable as an index to address each item in the array. The <code class="language-javascript">forEach</code> method, on the other hand, accepts a callback function that defines operations to perform with each item.</p>
+<p>Both structures ignore non-numeric properties, which can cause chaos if you use the <code class="language-javascript">for...in</code> structure to iterate over an array.</p>
+<p>In general, it's best to stick with the <code class="language-javascript">for</code> loop or <code class="language-javascript">forEach</code> method when iterating over an array as they are designed specifically for this purpose and provide better control and clarity in your code.</p>
+</div>

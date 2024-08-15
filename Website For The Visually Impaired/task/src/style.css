@@ -1,0 +1,33 @@
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    align-content: center;
+}
+
+.item {
+    width: 70%;
+}
+
+.item > img {
+    border: 5px solid lightsteelblue;
+    float: right;
+
+}
+
+button {
+    border: none;
+    background: cornflowerblue;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin: 0.5rem;
+}
+input {
+    border: 1px solid cornflowerblue;
+    padding: 0.4rem;
+}

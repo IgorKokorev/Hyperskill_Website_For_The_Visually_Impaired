@@ -1,0 +1,15 @@
+type: choice
+is_multiple_choice: false
+options:
+    -   text: From 0 (not inclusive) to 100 (inclusive)
+    -   text: From 0 (inclusive) to 10 (not inclusive)
+    -   text: From 0 (not inclusive) to 1 (inclusive)
+    -   text: From 0 (inclusive) to 1 (not inclusive)
+files:
+    -   name: main.js
+        visible: true
+        learner_created: false
+feedback_link: https://hyperskill.org/learn/step/24964#comment
+status: Solved
+record: -1
+local_check: false

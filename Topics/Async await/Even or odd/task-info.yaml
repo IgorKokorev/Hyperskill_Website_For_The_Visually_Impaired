@@ -1,0 +1,15 @@
+type: choice
+is_multiple_choice: true
+options:
+    -   text: <code>const result = promise;</code>
+    -   text: <code>const result = await promise;</code>
+    -   text: <code>const promise = result;</code>
+    -   text: <code> const promise = await result;</code>
+files:
+    -   name: main.js
+        visible: true
+        learner_created: false
+feedback_link: https://hyperskill.org/learn/step/27930#comment
+status: Solved
+record: -1
+local_check: false

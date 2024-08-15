@@ -1,0 +1,15 @@
+type: choice
+is_multiple_choice: true
+options:
+    -   text: <code>n &gt; 10</code>
+    -   text: <code>n != 10</code>
+    -   text: <code>n &lt; 10</code>
+    -   text: <code>n &lt; 0</code>
+files:
+    -   name: main.js
+        visible: true
+        learner_created: false
+feedback_link: https://hyperskill.org/learn/step/9133#comment
+status: Solved
+record: -1
+local_check: false
